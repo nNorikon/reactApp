@@ -1,0 +1,48 @@
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 86px;
+  background-color: #FFF;
+  border-bottom: 1px solid #F8F8F8;
+
+  .centeredHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logoBlock {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+  }
+
+  .signBlock {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+
+    .centeredSing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .imgCart {
+        margin-left: 50px;
+      }
+      a {
+        margin: 10px;
+        text-decoration: none;
+      }
+      a:hover, a:visited, a:focus {
+        font-size: 14px;
+        line-height: 16px;
+        color: #212542;
+      }
+    }
+  }
+
+
+
+}

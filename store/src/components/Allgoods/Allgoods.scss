@@ -1,0 +1,34 @@
+.allGoods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .allGoods {
+    justify-content: center;
+  }
+}
+
+
+.slogan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #212542;
+  font-size: 64px;
+  line-height: 77px;
+  letter-spacing: 0.1em;
+  margin-bottom: 48px;
+  img {
+    margin: 0 15px 0 10px;
+    width: auto;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .slogan {
+    font-size: 32px;
+  }
+}

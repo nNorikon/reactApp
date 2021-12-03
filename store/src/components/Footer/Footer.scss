@@ -1,0 +1,45 @@
+.footer {
+
+  border-top: 1px solid #F8F8F8;
+
+  .backgroundLogoLinks {
+    background-color: #FFFFFF;
+
+  }
+
+  .logoLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+    .linksFooter {
+      a {
+        margin-left: 32px;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0;
+      }
+      a:link, a:visited {
+        color: rgba(33, 37, 66, 0.7);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .copyrights {
+    background-color: #F4F4F5;
+  }
+
+  .alignedCopy {
+    height: 45px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: rgba(33, 37, 66, 0.5);
+
+  }
+
+}

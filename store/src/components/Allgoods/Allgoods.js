@@ -1,5 +1,7 @@
 import React from 'react'
+
 import {Cart} from "../Cart";
+
 import './Allgoods.scss'
 import heart from "../../assets/images/heart.svg";
 
@@ -9,7 +11,7 @@ export const Allgoods = () => {
 
     return (
         <>
-            <div className={'slogan'}>
+            <div className='slogan'>
                 I<img src={heart} alt='I love icecream' />ICE CREAM
             </div>
             <div className='allGoods'>

@@ -1,11 +1,12 @@
-import './App.css';
+import React, {useEffect} from "react";
+import {BrowserRouter} from "react-router-dom";
+
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import {Main} from "./components/Main";
-import {BrowserRouter} from "react-router-dom";
-import {allGoods} from "./mock";
-import {useEffect} from "react";
 
+import {allGoods} from "./mock";
+import './App.css';
 
 function App() {
 

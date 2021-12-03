@@ -27,3 +27,27 @@ export const allGoods = [
     },
 
 ]
+
+
+export const socialLinks = [
+    {
+        innerText: 'Our products',
+        link: '#'
+    },
+    {
+        innerText: 'Privacy terms',
+        link: '#'
+    },
+    {
+        innerText: 'Twitter',
+        link: '#'
+    },
+    {
+        innerText: 'Facebook',
+        link: '#'
+    },
+    {
+        innerText: 'Email',
+        link: '#'
+    }
+];

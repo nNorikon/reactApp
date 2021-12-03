@@ -1,8 +1,10 @@
 import React from "react";
-import './Main.scss';
-import {Allgoods} from "../Allgoods";
 import {Route, Routes} from "react-router-dom";
+
+import {Allgoods} from "../Allgoods";
 import {Basket} from "../Basket";
+
+import './Main.scss';
 
 export const Main = () => {
     return (

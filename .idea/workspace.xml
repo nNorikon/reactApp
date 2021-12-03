@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8b4f6b33-94ed-4fd7-ba57-2a4656cf397a" name="Changes" comment="Add main page, cards">
+      <change afterPath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/src/components/CardDetail/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/Allgoods/Allgoods.scss" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Allgoods/Allgoods.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/Main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Main/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/Main/Main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Main/Main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/mock.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/mock.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="21fumRNWsWcQYwbwjWg8AW6qfrl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/store/src/components" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/store/src/components" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8b4f6b33-94ed-4fd7-ba57-2a4656cf397a" name="Changes" comment="" />
+      <created>1638344621665</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638344621665</updated>
+      <workItem from="1638344622882" duration="12032000" />
+      <workItem from="1638370411572" duration="3475000" />
+      <workItem from="1638430425403" duration="25460000" />
+      <workItem from="1638515111642" duration="13050000" />
+      <workItem from="1638531967731" duration="12865000" />
+    </task>
+    <task id="LOCAL-00001" summary="Create develop branch">
+      <created>1638345778053</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638345778053</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add main page, cards">
+      <created>1638526931830</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638526931830</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add main page, cards">
+      <created>1638531701806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638531701806</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Create develop branch" />
+    <MESSAGE value="Add main page, cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add main page, cards" />
+  </component>
+</project>

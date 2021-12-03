@@ -4,26 +4,30 @@ export const allGoods = [
     {
         id: 1,
         img: defaultIceCream,
-        name: 'dfvfv',
-        cost: '$4444'
+        name: 'Первое мороженное',
+        cost: '$245',
+        art: 'BXD100BLK'
     },
     {
         id: 2,
         img: defaultIceCream,
-        name: 'qqqq',
-        cost: '$222'
+        name: 'Второе мороженное',
+        cost: '$164',
+        art: 'BXD100RTD'
     },
     {
         id: 3,
         img: defaultIceCream,
-        name: 'dfccccc',
-        cost: '$223333'
+        name: 'Третье мороженное',
+        cost: '$120',
+        art: 'BXH101LDK'
     },
     {
         id: 4,
         img: defaultIceCream,
-        name: 'aaaaa',
-        cost: '$11'
+        name: 'Четвертое мороженное',
+        cost: '$101',
+        art: 'BXD100BLK'
     },
 
 ]

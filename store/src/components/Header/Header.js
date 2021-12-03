@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom';
 
 import logoSub from "../../assets/images/logo.svg";
 import signUp from "../../assets/images/signup.svg";
@@ -11,7 +12,9 @@ export const Header = () => {
         <header className='header'>
             <div className='centeredHeader container'>
                 <div className='logoBlock'>
-                    <img src={logoSub} alt='Justice Cream' />
+                    <NavLink to='/'>
+                        <img src={logoSub} alt='Justice Cream' />
+                    </NavLink>
                 </div>
                 <div className='signBlock'>
                     <div className='centeredSing'>

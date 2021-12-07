@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {BrowserRouter} from "react-router-dom";
 
 import {Header} from "./components/Header";
@@ -9,14 +9,20 @@ import {allGoods} from "./mock";
 import './App.css';
 
 function App() {
-
+    const [allProducts, setAllProducts] = useState(JSON.parse(localStorage.getItem('objectGoods')) || []);
+    const [baskets, setBaskets] = useState(JSON.parse(localStorage.getItem('baskets')) || []);
     useEffect(() => {
         localStorage.setItem('objectGoods', JSON.stringify(allGoods));
     }, []);
     return (
         <BrowserRouter>
             <Header />
-            <Main />
+            <Main
+                allProducts={allProducts}
+                setAllProducts={setAllProducts}
+                baskets={baskets}
+                setBaskets={setBaskets}
+            />
             <Footer />
         </BrowserRouter>
     );

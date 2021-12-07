@@ -17,7 +17,7 @@ export const Footer = () => {
                     <div className='linksFooter'>
                         {
                             socialLinks.map((link) => (
-                                <a href={link.link}>{link.innerText}</a>
+                                <a href={link.link} key={link.id}>{link.innerText}</a>
                             ))
                         }
                     </div>

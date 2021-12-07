@@ -12,19 +12,21 @@ export const Allgoods = () => {
     return (
         <>
             <div className='slogan'>
-                I<img src={heart} alt='I love icecream' />ICE CREAM
+                I<img src={heart} alt='I love icecream'/>ICE CREAM
             </div>
-            <div className='allGoods'>
-                {goods.map((good) => (
-                    <Cart
-                        key={good.id}
-                        id={good.id}
-                        name={good.name}
-                        cost={good.cost}
-                        img={good.img}
-                    />
-                ))}
-            </div>
+            {goods && (
+                <div className='allGoods'>
+                    {goods.map((good) => (
+                        <Cart
+                            key={good.id}
+                            id={good.id}
+                            name={good.name}
+                            cost={good.cost}
+                            img={good.img}
+                        />
+                    ))}
+                </div>
+            )}
         </>
     )
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b4f6b33-94ed-4fd7-ba57-2a4656cf397a" name="Changes" comment="Add main page, cards">
-      <change afterPath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/src/components/CardDetail/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/components/Allgoods/Allgoods.scss" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Allgoods/Allgoods.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Header/Header.js" afterDir="false" />
+    <list default="true" id="8b4f6b33-94ed-4fd7-ba57-2a4656cf397a" name="Changes" comment="70% card of good">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/Allgoods/Allgoods.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Allgoods/Allgoods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/CardDetail/CardDetail.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Footer/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/components/Main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Main/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/src/components/Main/Main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/components/Main/Main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/src/mock.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/src/mock.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +68,9 @@
       <workItem from="1638430425403" duration="25460000" />
       <workItem from="1638515111642" duration="13050000" />
       <workItem from="1638531967731" duration="12865000" />
+      <workItem from="1638545580929" duration="59000" />
+      <workItem from="1638775932338" duration="28959000" />
+      <workItem from="1638860005698" duration="8759000" />
     </task>
     <task id="LOCAL-00001" summary="Create develop branch">
       <created>1638345778053</created>
@@ -90,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638531701806</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="70% card of good">
+      <created>1638545630431</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638545630431</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create develop branch" />
     <MESSAGE value="Add main page, cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add main page, cards" />
+    <MESSAGE value="70% card of good" />
+    <option name="LAST_COMMIT_MESSAGE" value="70% card of good" />
   </component>
 </project>

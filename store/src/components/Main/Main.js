@@ -7,15 +7,21 @@ import {CardDetail} from "../CardDetail";
 
 import './Main.scss';
 
-export const Main = () => {
+export const Main = ({allProducts, setAllProducts, baskets, setBaskets}) => {
 
     return (
         <main className='container main'>
 
             <Routes>
                 <Route path='/' element={<Allgoods />} />
-                <Route path='/basket/' element={<Basket />} />
-                <Route path='/product/:id' element={<CardDetail />} />
+                <Route path='/basket/' element={<Basket  />} />
+                <Route path='/product/:productId' element={
+                    <CardDetail
+                        allProducts={allProducts}
+                        setAllProducts={setAllProducts}
+                        baskets={baskets}
+                        setBaskets={setBaskets}
+                    />} />
             </Routes>
 
         </main>

@@ -1,28 +1,4 @@
 
-.cardInfo {
-  width: 100%;
-  font-size: 14px;
-  line-height: 14px;
-
-  .breadcrumbs {
-    margin-bottom: 30px;
-
-    .mainLink {
-      display: inline-block;
-      opacity: 0.5;
-
-      a, a:visited, a:focus, a:active {
-        color: #212542;
-        text-decoration: none;
-      }
-    }
-
-    .currentLink {
-      display: inline-block;
-      margin-left: 8px;
-    }
-  }
-}
 
 .cardMainInfo {
   display: flex;

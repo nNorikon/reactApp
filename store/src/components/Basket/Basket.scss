@@ -1,5 +1,84 @@
-.allGoods {
+.basketWord {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0;
+  color: rgba(33, 37, 66, 1);
+}
+
+.itemBottomBorder {
+  border-bottom: 1px solid rgba(244, 245, 255, 1);
+  width: 100%;
+}
+
+.basketBlock {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+
+  .basketItemsBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 30%;
+    width: 70%;
+    margin-right: 48px;
+    .emptyBasket {
+      position: relative;
+      top: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: rgba(33, 37, 66, 0.7);
+    }
+  }
+
+  .itemTotalCost {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 30%;
+    background: #FFFFFF;
+    border: 1px solid #F4F5FF;
+    box-sizing: border-box;
+    border-radius: 24px;
+    height: 199px;
+    width: 340px;
+    border-radius: 24px;
+    padding: 0 32px;
+    .subTotal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 32px 0;
+      padding-bottom: 32px;
+      .subTotalWord {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0
+      }
+      .totalCostValue {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0;
+      }
+    }
+    .checkOutButton {
+      background: linear-gradient(92.65deg, #DFEBFF -21.79%, #88ADCA 126.46%), #AECEF3;
+      border-radius: 69px;
+      height: 60px;
+      width: 276px;
+      line-height: 16px;
+      letter-spacing: 0;
+      color: rgba(255, 255, 255, 1);
+      border: none;
+      position: relative;
+      bottom: 32px;
+      cursor: pointer;
+    }
+  }
+
 }

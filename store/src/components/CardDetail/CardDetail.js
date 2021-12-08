@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
-import {NavLink, useParams, BrowzerRouter} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {NavLink, useParams} from 'react-router-dom';
 
 import './CardDetail.scss';
-import cardLogo from '../../assets/images/defaultIcecream.svg';
 import basketMinus from '../../assets/images/minus.svg';
 import basketPlus from '../../assets/images/plus.svg';
 import blockedButton from '../../assets/images/block.svg';
 import successAnswer from '../../assets/images/success.svg';
 import waitingRing from '../../assets/images/waiting.svg';
+import {logDOM} from "@testing-library/react";
+import {allGoods} from "../../mock";
 
-export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets}) => {
+export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
     const isAddedToBasket = false;
     const {productId} = useParams();
     const [count, setCount] = useState(1);
@@ -18,7 +19,6 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets}) =
 
     //Temp
     const isUser = true; //Существует ли пользователь
-    const userId = 0;
 
     const counter = (param) => {
         if (param === 'plus') {
@@ -32,7 +32,7 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets}) =
     const clickOnButtom = (infoOfGood, countOfGood) => {
         const getBasket = JSON.parse(localStorage.getItem('basket'));
         !getBasket && localStorage.setItem('basket', JSON.stringify([{
-            userid: 0,
+            userid: userId,
             basket: []
         }]));
 
@@ -44,8 +44,26 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets}) =
             if (getLengthElementsInBasket < 3) {
 
                 const selectedProduct = getBasketByUser.basket.find(el => el.id == productId);
+
                 if (selectedProduct) {
-                    // selectedProduct.count = selectedProduct.count + count;
+                    selectedProduct.count += count;
+                    const newAllBaskets = getBasket.map((userBasket) => {
+
+                        if (userId == userBasket.userid) {
+
+                            const newBasket = userBasket.basket.map((elementOfBasket) => {
+                                if (elementOfBasket.id == productId) {
+                                    return selectedProduct;
+                                }
+                                return elementOfBasket
+                            })
+                            return {...userBasket, basket: newBasket}
+
+                        }
+
+                        return userBasket
+                    });
+                    localStorage.setItem('basket', JSON.stringify(newAllBaskets));
 
                 } else {
                     productInfo['count'] = count;
@@ -62,15 +80,6 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets}) =
         } else {
             //Вызов окна регистрации/авторизации
         }
-
-        // const countOfGoodOfUser = JSON.parse(localStorage.getItem(email));
-        // if (countOfGoodOfUser.length < 3) {
-        //     infoOfGood['count'] = countOfGood;
-        //     localStorage.setItem('email', JSON.stringify([infoOfGood]));
-        // }
-        // else {
-        //     setIsError(true);
-        // }
     }
 
     return (
@@ -87,20 +96,20 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets}) =
             </div>
             <div className='cardMainInfo container'>
                 <div className='logoBlock'>
-                    <img src={productInfo.img} alt='Мороженное'/>
+                    <img src={productInfo?.img} alt='Мороженное'/>
                 </div>
                 <div className='descriptionBlock'>
                     <div className='vendorCode'>
-                        SKU: {productInfo.art}
+                        SKU: {productInfo?.art}
                     </div>
                     <div className='cardName'>
-                        {productInfo.name}
+                        {productInfo?.name}
                     </div>
                     <div className='cardDescription'>
                         <div className='descWord'>Description:</div>
-                        <div className='cardDesc'>{productInfo.desc}</div>
+                        <div className='cardDesc'>{productInfo?.desc}</div>
                         <div className='cardCostCount'>
-                            <div className='cardCost'>{productInfo.cost}</div>
+                            <div className='cardCost'>{productInfo?.cost}</div>
                             <div className='cardCount'>
                                 <img onClick={() => counter('minus')} src={basketMinus} alt='Remove one from basket'/>
                                 <div className='basketCount'>{count}</div>

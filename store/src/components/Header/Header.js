@@ -7,7 +7,7 @@ import cart from "../../assets/images/cart.svg";
 
 import "./Header.scss";
 
-export const Header = () => {
+export const Header = ({basketInfo}) => {
     return (
         <header className='header'>
             <div className='centeredHeader container'>
@@ -20,7 +20,10 @@ export const Header = () => {
                     <div className='centeredSing'>
                         <img src={signUp} alt='Signup or Signin' />
                         <a href='#'>Sign up</a> / <a href='#'>Sign in</a>
-                        <img src={cart} alt='Cart' className='imgCart' />
+                        <div className='basketBlock'>
+                            <div className='basketInfo'>{basketInfo}</div>
+                            <img src={cart} alt='Cart' className='imgCart' />
+                        </div>
                         <a href='#'>Cart</a>
                     </div>
                 </div>

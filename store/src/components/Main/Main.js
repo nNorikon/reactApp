@@ -7,7 +7,7 @@ import {CardDetail} from "../CardDetail";
 
 import './Main.scss';
 
-export const Main = ({allProducts, setAllProducts, baskets, setBaskets}) => {
+export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
 
     return (
         <main className='container main'>
@@ -21,6 +21,9 @@ export const Main = ({allProducts, setAllProducts, baskets, setBaskets}) => {
                         setAllProducts={setAllProducts}
                         baskets={baskets}
                         setBaskets={setBaskets}
+                        userId={userId}
+                        basketInfo={basketInfo}
+                        setBasketInfo={setBasketInfo}
                     />} />
             </Routes>
 

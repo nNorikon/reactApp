@@ -7,7 +7,6 @@ import {Main} from "./components/Main";
 
 import {allGoods} from "./mock";
 import './App.css';
-import {useRadioGroup} from "@mui/material";
 
 function App() {
 

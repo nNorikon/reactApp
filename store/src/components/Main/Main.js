@@ -14,7 +14,14 @@ export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, 
 
             <Routes>
                 <Route path='/' element={<Allgoods />} />
-                <Route path='/basket/' element={<Basket  />} />
+                <Route path='/basket/' element={
+                    <Basket
+                        baskets={baskets}
+                        setBaskets={setBaskets}
+                        userId={userId}
+                        basketInfo={basketInfo}
+                        setBasketInfo={setBasketInfo}
+                    />} />
                 <Route path='/product/:productId' element={
                     <CardDetail
                         allProducts={allProducts}

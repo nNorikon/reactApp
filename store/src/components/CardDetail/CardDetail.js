@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink, useParams} from 'react-router-dom';
+import {Bread} from "../Bread";
 
 import './CardDetail.scss';
 import basketMinus from '../../assets/images/minus.svg';
@@ -7,6 +8,7 @@ import basketPlus from '../../assets/images/plus.svg';
 import blockedButton from '../../assets/images/block.svg';
 import successAnswer from '../../assets/images/success.svg';
 import waitingRing from '../../assets/images/waiting.svg';
+
 import {logDOM} from "@testing-library/react";
 import {allGoods} from "../../mock";
 
@@ -83,16 +85,7 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
 
     return (
         <>
-            <div className='cardInfo container'>
-                <div className='breadcrumbs'>
-                    <div className='mainLink'>
-                        <NavLink to='/'>Main page</NavLink> /
-                    </div>
-                    <div className='currentLink'>
-                        Product card
-                    </div>
-                </div>
-            </div>
+            <Bread key={0} nameOfPage={'Product card'} />
             <div className='cardMainInfo container'>
                 <div className='logoBlock'>
                     <img src={productInfo?.img} alt='Мороженное'/>

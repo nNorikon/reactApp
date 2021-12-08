@@ -11,7 +11,7 @@ import {logDOM} from "@testing-library/react";
 import {allGoods} from "../../mock";
 
 export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
-    const isAddedToBasket = false;
+    const [isAddedToBasket, setIsAddedToBasket] = useState(false);
     const {productId} = useParams();
     const [count, setCount] = useState(1);
     const [isError, setIsError] = useState(false);
@@ -27,7 +27,6 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
             if (count > 1) setCount(count - 1);
         }
     }
-
 
     const clickOnButtom = (infoOfGood, countOfGood) => {
         const getBasket = JSON.parse(localStorage.getItem('basket'));
@@ -64,7 +63,7 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
                         return userBasket
                     });
                     localStorage.setItem('basket', JSON.stringify(newAllBaskets));
-
+                    setIsAddedToBasket(true);
                 } else {
                     productInfo['count'] = count;
                     localStorage.setItem('basket', JSON.stringify([...baskets, {
@@ -117,9 +116,6 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
                             </div>
                         </div>
                         <div className='addToBasketBlock'>
-
-                            {isError && (<div className='moreThreeErrorBlock'>Вы можете добавить не более трех разных
-                                товаров</div>)}
                             {isAddedToBasket ?
                                 (
                                     <button className='cardButtonToBasket'>
@@ -137,11 +133,16 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
                                 )
                             }
                             {isAddedToBasket && (
-                                <button className='successAlertAddToBasket'>
+                                <div className='successAlertAddToBasket'>
                                     <img src={successAnswer} alt='You need to add atleast three goods!'/>
                                     Added to cart
-                                </button>
+                                </div>
                             )}
+                            {isError && (
+                                <div className='moreThreeErrorBlock'>
+                                    More than three !
+                                </div>)
+                            }
                         </div>
                     </div>
                 </div>

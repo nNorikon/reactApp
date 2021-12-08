@@ -24,7 +24,7 @@ export const Header = ({basketInfo}) => {
                             <div className='basketInfo'>{basketInfo}</div>
                             <img src={cart} alt='Cart' className='imgCart' />
                         </div>
-                        <a href='#'>Cart</a>
+                        <NavLink to='/basket'>Cart</NavLink>
                     </div>
                 </div>
             </div>

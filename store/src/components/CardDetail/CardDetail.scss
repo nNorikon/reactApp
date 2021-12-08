@@ -1,0 +1,173 @@
+
+.cardInfo {
+  width: 100%;
+  font-size: 14px;
+  line-height: 14px;
+
+  .breadcrumbs {
+    margin-bottom: 30px;
+
+    .mainLink {
+      display: inline-block;
+      opacity: 0.5;
+
+      a, a:visited, a:focus, a:active {
+        color: #212542;
+        text-decoration: none;
+      }
+    }
+
+    .currentLink {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+}
+
+.cardMainInfo {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+
+  .logoBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 524px;
+    background-color: #F1F7FF;
+    border-radius: 30px;
+    margin-right: 48px;
+
+    img {
+      width: 392px;
+    }
+  }
+
+  .descriptionBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 40%;
+
+    .vendorCode {
+      padding: 0;
+      border-radius: 26px;
+      background-color: rgba(242, 242, 250, 1);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+      letter-spacing: 0;
+      padding: 8px 16px 8px 16px;
+      width: 100px;
+    }
+
+    .cardName {
+      font-family: Inter;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: 0em;
+    }
+
+    .cardDescription {
+      .descWord {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: 0
+      }
+      .cardDesc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0;
+        color: rgba(33, 37, 66, 0.7);
+        margin-top: 8px;
+      }
+
+      .cardCostCount {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-top: 32px;
+        .cardCost{
+          color: rgba(33, 37, 66, 0.7);
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 16px;
+          letter-spacing: 0em;
+        }
+        .cardCount {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 24px;
+          .basketCount {
+            margin: 0 26px 0 26px;
+          }
+          img {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .addToBasketBlock {
+        margin: 40px 0 20px 0;
+        display: flex;
+        align-items: center;
+        .moreThreeErrorBlock {
+          margin-left: 30px;
+          color: red
+        }
+        .cardButtonToBasket {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(92.65deg, #DFEBFF -21.79%, #88ADCA 126.46%),
+          linear-gradient(0deg, #AECEF3, #AECEF3);
+          border-radius: 69px;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 16px;
+          letter-spacing: 0em;
+          width: 180px;
+          padding: 22px 0 22px 0;
+          a, a:hover, a:visited, a:focus, a:active {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 1);
+            margin-left: 10px;
+          }
+          cursor: pointer;
+          border: none;
+
+          .spinWaitingImage {
+            animation: spin 2s linear infinite;
+          }
+
+        }
+        .successAlertAddToBasket {
+          margin-left: 39px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            margin-right: 8px;
+          }
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 16px;
+          letter-spacing: 0em;
+          color: rgba(163, 214, 155, 1);
+        }
+      }
+
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

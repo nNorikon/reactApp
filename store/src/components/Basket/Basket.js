@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 import {CardOfProduct} from "../CardOfProduct";
 import {Bread} from "../Bread";
 import './Basket.scss'
-import {allGoods} from "../../mock";
 
 export const Basket = ({baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
     const [getBasketByUser, setGetBasketByUser] = useState(JSON.parse(localStorage.getItem('basket')).find(userBasket => userBasket.userid === userId).basket);

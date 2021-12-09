@@ -5,12 +5,15 @@ import {Cart} from "../Cart";
 import './Allgoods.scss'
 import heart from "../../assets/images/heart.svg";
 
+
 export const Allgoods = () => {
 
     const goods = JSON.parse(localStorage.getItem('objectGoods'));
 
     return (
         <>
+
+
             <div className='slogan'>
                 I<img src={heart} alt='I love icecream'/>ICE CREAM
             </div>

@@ -7,7 +7,7 @@ import {CardDetail} from "../CardDetail";
 
 import './Main.scss';
 
-export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
+export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo, users, }) => {
 
     return (
         <main className='container main'>

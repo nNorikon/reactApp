@@ -12,8 +12,11 @@ function App() {
 
     const [allProducts, setAllProducts] = useState(JSON.parse(localStorage.getItem('objectGoods')) || []);
     const [baskets, setBaskets] = useState(JSON.parse(localStorage.getItem('basket')) || []);
+    const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
     const [userId, setUserId] = useState(0);
     const [basketInfo, setBasketInfo] = useState(0);
+    const [open, setOpen] = useState(false);
+    const [viewModal, setViewModal] = useState('signup');
 
     useEffect(() => {
         localStorage.setItem('objectGoods', JSON.stringify(allGoods));
@@ -30,6 +33,12 @@ function App() {
         <BrowserRouter>
             <Header
                 basketInfo={basketInfo}
+                users={users}
+                setUsers={setUsers}
+                open={open}
+                setOpen={setOpen}
+                viewModal={viewModal}
+                setViewModal={setViewModal}
             />
             <Main
                 allProducts={allProducts}

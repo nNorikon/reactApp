@@ -4,19 +4,19 @@ import './CardOfProduct.scss';
 import removeButton from '../../assets/images/removeButton.svg'
 
 
-export const CardOfProduct = ({object, userId, getBasketByUser, setGetBasketByUser}) => {
+export const CardOfProduct = ({object, userId, getBasketByUser, setGetBasketByUser, setBasketInfo}) => {
 
     const removeItem = (removableItemById) => {
         const newUserBasketAfterRemoveItem = getBasketByUser.filter((item) => +item.id !== +removableItemById);
-
-        const getBasketTable = JSON.parse(localStorage.getItem('basket'));
+        setBasketInfo(newUserBasketAfterRemoveItem.length);
+        const getBasketTable = JSON.parse(localStorage.getItem('baskets'));
         const changedBasketTable = getBasketTable.map((userObject) => {
             if (userObject.userid === userId) {
                 return {...userObject, basket: newUserBasketAfterRemoveItem};
             }
         });
 
-        localStorage.setItem('basket' ,JSON.stringify(changedBasketTable));
+        localStorage.setItem('baskets' ,JSON.stringify(changedBasketTable));
         return setGetBasketByUser(newUserBasketAfterRemoveItem);
     }
 

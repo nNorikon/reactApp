@@ -91,4 +91,17 @@ export const signUpInputs =[
         placeholder: 'You name',
         labelName: 'name'
     },
+];
+
+export const signInInputs =[
+    {
+        id: 'email',
+        placeholder: 'You email',
+        labelName: 'Email'
+    },
+    {
+        id: 'password',
+        placeholder: 'Enter your password',
+        labelName: 'Password'
+    }
 ]

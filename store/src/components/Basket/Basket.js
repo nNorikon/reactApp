@@ -4,9 +4,19 @@ import {NavLink} from 'react-router-dom';
 import {CardOfProduct} from "../CardOfProduct";
 import {Bread} from "../Bread";
 import './Basket.scss'
+import {allGoods} from "../../mock";
 
-export const Basket = ({baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
-    const [getBasketByUser, setGetBasketByUser] = useState(JSON.parse(localStorage.getItem('basket')).find(userBasket => userBasket.userid === userId).basket);
+export const Basket = ({userId, baskets, setBasketInfo}) => {
+    const getBasket = JSON.parse(localStorage.getItem('baskets'));
+
+    const [getBasketByUser, setGetBasketByUser] = useState([]);
+
+    useEffect(() => {
+        if(getBasket && !Object.keys(getBasketByUser).length) {
+            const userBasket = getBasket.find(userBasket => userBasket.userid === userId).basket;
+            setGetBasketByUser(userBasket)
+        }
+    }, []);
 
     //Высчитаваем общую стоимость товаров и форматируем
     const [totalCost, setTotalCost] = useState(0);
@@ -41,6 +51,7 @@ export const Basket = ({baskets, setBaskets, userId, basketInfo, setBasketInfo})
                             userId={userId}
                             getBasketByUser={getBasketByUser}
                             setGetBasketByUser={setGetBasketByUser}
+                            setBasketInfo={setBasketInfo}
                         />))}
                 </div>
                 <div className='itemTotalCost'>

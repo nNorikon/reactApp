@@ -7,7 +7,7 @@ import {CardDetail} from "../CardDetail";
 
 import './Main.scss';
 
-export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
+export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo, isAuth, setViewModal}) => {
 
     return (
         <main className='container main'>
@@ -15,15 +15,22 @@ export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, 
             <Routes>
                 <Route path='/' element={<Allgoods />} />
                 <Route path='/basket/' element={
-                    <Basket
-                        baskets={baskets}
-                        setBaskets={setBaskets}
-                        userId={userId}
-                        basketInfo={basketInfo}
-                        setBasketInfo={setBasketInfo}
-                    />} />
+                    isAuth ? (
+                        <Basket
+                            baskets={baskets}
+                            setBaskets={setBaskets}
+                            userId={userId}
+                            basketInfo={basketInfo}
+                            setBasketInfo={setBasketInfo}
+                            isAuth={isAuth}
+                        />
+                    ) : (
+                            <Allgoods />
+                        )
+                }/>
                 <Route path='/product/:productId' element={
                     <CardDetail
+                        isAuth={isAuth}
                         allProducts={allProducts}
                         setAllProducts={setAllProducts}
                         baskets={baskets}
@@ -31,7 +38,9 @@ export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, 
                         userId={userId}
                         basketInfo={basketInfo}
                         setBasketInfo={setBasketInfo}
-                    />} />
+                        setViewModal={setViewModal}
+                    />
+                }/>
             </Routes>
 
         </main>

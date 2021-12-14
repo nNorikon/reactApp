@@ -1,0 +1,105 @@
+.modalBlock {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 426px;
+  background-color: #FFF;
+  border: 1px solid #F4F5FF;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  .closeButton {
+    position: relative;
+    left: 442px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .mainBlock{
+
+    padding: 72px 56px;
+    .articleBlock {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: 0;
+      margin-bottom: 16px;
+    }
+    .formBlock {
+
+      .inputBlock {
+
+        input {
+          display: block;
+          width: 282px;
+        }
+        .signLabelText {
+          margin: 24px 0 10px 0;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 16px;
+          letter-spacing: 0;
+          display: block;
+        }
+      }
+    }
+    .signButton {
+      background: linear-gradient(92.65deg, #DFEBFF -21.79%, #88ADCA 126.46%),
+      linear-gradient(0deg, #AECEF3, #AECEF3);
+      height: 60px;
+      border-radius: 69px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 0;
+      color: rgba(255, 255, 255, 1);
+      margin: 32px 0 30px 0;
+    }
+
+
+
+    .containerModalSignButton {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      .signTextLink {
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0;
+      }
+      .modalSignInButton {
+        display: inline;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: #9DBCD7;
+        border: none;
+        background: none;
+        text-decoration-line: underline;
+        cursor: pointer;
+      }
+    }
+
+
+    .errorUserExists {
+      text-align: center;
+      color: darkred;
+      margin-bottom: 10px;
+    }
+  }
+
+}
+

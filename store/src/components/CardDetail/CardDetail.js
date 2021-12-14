@@ -9,18 +9,22 @@ import blockedButton from '../../assets/images/block.svg';
 import successAnswer from '../../assets/images/success.svg';
 import waitingRing from '../../assets/images/waiting.svg';
 
-import {logDOM} from "@testing-library/react";
-import {allGoods} from "../../mock";
-
-export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, userId, basketInfo, setBasketInfo}) => {
+export const CardDetail = ({allProducts, baskets, userId, isAuth, setViewModal, setBasketInfo}) => {
     const [isAddedToBasket, setIsAddedToBasket] = useState(false);
     const {productId} = useParams();
     const [count, setCount] = useState(1);
     const [isError, setIsError] = useState(false);
     const productInfo = allProducts.find(product => product.id == productId);
+    const getBasket = JSON.parse(localStorage.getItem('baskets'));
+    const [getBasketByUser, setGetBasketByUser] = useState([]);
 
-    //Temp
-    const isUser = true; //Существует ли пользователь
+    useEffect(() => {
+        if (getBasket && !Object.keys(getBasketByUser).length) {
+            const userBasket = getBasket.find(userBasket => userBasket.userid === userId);
+            setGetBasketByUser(userBasket)
+        }
+    }, [getBasket, isAddedToBasket]);
+
 
     const counter = (param) => {
         if (param === 'plus') {
@@ -30,28 +34,30 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
         }
     }
 
-    const clickOnButtom = (infoOfGood, countOfGood) => {
-        const getBasket = JSON.parse(localStorage.getItem('basket'));
-        !getBasket && localStorage.setItem('basket', JSON.stringify([{
-            userid: userId,
-            basket: []
-        }]));
-
-        if (isUser) {
-
-            const getBasketByUser = JSON.parse(localStorage.getItem('basket')).find(userBasket => userBasket.userid === userId);
-            const getLengthElementsInBasket = getBasketByUser.basket.length;
-
-            if (getLengthElementsInBasket < 3) {
-
-                const selectedProduct = getBasketByUser.basket.find(el => el.id == productId);
-
+    const clickOnButton = () => {
+        if (isAuth) {
+            if (!Object.keys(getBasketByUser).length) {
+                localStorage.setItem('baskets', JSON.stringify([{
+                    userid: userId,
+                    basket: [{
+                        id: productInfo.id,
+                        img: productInfo.img,
+                        name: productInfo.name,
+                        cost: productInfo.cost,
+                        art: productInfo.art,
+                        desc: productInfo.desc,
+                        count: count,
+                    }]
+                }]));
+                setBasketInfo(1)
+            } else {
+                const selectedProduct = getBasketByUser.basket.find(el => {
+                    return el.id == productId
+                });
                 if (selectedProduct) {
                     selectedProduct.count += count;
                     const newAllBaskets = getBasket.map((userBasket) => {
-
                         if (userId == userBasket.userid) {
-
                             const newBasket = userBasket.basket.map((elementOfBasket) => {
                                 if (elementOfBasket.id == productId) {
                                     return selectedProduct;
@@ -59,33 +65,61 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
                                 return elementOfBasket
                             })
                             return {...userBasket, basket: newBasket}
-
                         }
-
                         return userBasket
                     });
-                    localStorage.setItem('basket', JSON.stringify(newAllBaskets));
-                    setIsAddedToBasket(true);
+                    localStorage.setItem('baskets', JSON.stringify(newAllBaskets));
+                    setIsAddedToBasket(true)
+
                 } else {
-                    productInfo['count'] = count;
-                    localStorage.setItem('basket', JSON.stringify([...baskets, {
-                        userid: userId,
-                        basket: [...getBasketByUser.basket, productInfo]
-                    }]));
+                    const getLengthElementsInBasket = getBasketByUser.basket.length;
+                    if (getLengthElementsInBasket < 3) {
+                        productInfo['count'] = count;
+                        const newAllBaskets = getBasket.filter((elem) => {
+                            if (userId !== elem.userid) {
+                                return {elem}
+                            }
+                        });
+
+                        localStorage.setItem('baskets', JSON.stringify([...newAllBaskets, {
+                            userid: userId,
+                            basket: [...getBasketByUser.basket, productInfo]
+                        }]));
+                        setBasketInfo((prevState) => prevState + 1)
+                        setIsAddedToBasket(true);
+                    } else {
+                        setIsError(true);
+                    }
                 }
 
 
-            } else {
-                setIsError(true);
             }
         } else {
-            //Вызов окна регистрации/авторизации
+            setViewModal('signin');
         }
+    }
+
+    const authorizedAddButton = () => {
+        return (
+            <button onClick={() => clickOnButton(productInfo, count)}
+                    className='cardButtonToBasket'>
+                {!isAuth && (<img className='loadingButton' src={blockedButton} alt='You need to add atleast three goods!'/>)}
+                <a href='#'>Add to cart</a>
+            </button>
+        )
+    }
+
+    const addedButton = () => {
+        return (
+            <button className='cardButtonToBasket'>
+                <img className='spinWaitingImage' src={waitingRing} alt='Success!'/>
+            </button>
+        )
     }
 
     return (
         <>
-            <Bread key={0} nameOfPage={'Product card'} />
+            <Bread key={0} nameOfPage={'Product card'}/>
             <div className='cardMainInfo container'>
                 <div className='logoBlock'>
                     <img src={productInfo?.img} alt='Мороженное'/>
@@ -109,22 +143,8 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
                             </div>
                         </div>
                         <div className='addToBasketBlock'>
-                            {isAddedToBasket ?
-                                (
-                                    <button className='cardButtonToBasket'>
-                                        <img className='spinWaitingImage' src={waitingRing} alt='Success!'/>
-                                    </button>
-                                )
-                                :
-                                (
-                                    <button onClick={() => clickOnButtom(productInfo, count)}
-                                            className='cardButtonToBasket'>
-                                        <img className='loadingButton' src={blockedButton}
-                                             alt='You need to add atleast three goods!'/>
-                                        <a href='#'>Add to cart</a>
-                                    </button>
-                                )
-                            }
+
+                            {isAddedToBasket ? addedButton() : authorizedAddButton()}
                             {isAddedToBasket && (
                                 <div className='successAlertAddToBasket'>
                                     <img src={successAnswer} alt='You need to add atleast three goods!'/>
@@ -133,7 +153,7 @@ export const CardDetail = ({allProducts, setAllProducts, baskets, setBaskets, us
                             )}
                             {isError && (
                                 <div className='moreThreeErrorBlock'>
-                                    More than three !
+                                    You can add no more then three different goods
                                 </div>)
                             }
                         </div>

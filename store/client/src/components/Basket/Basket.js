@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react'
 import {useState} from "react";
-import {NavLink} from 'react-router-dom';
+// import {NavLink} from 'react-router-dom';
 import {CardOfProduct} from "../CardOfProduct";
 import {Bread} from "../Bread";
 import './Basket.scss'
-import {allGoods} from "../../mock";
+// import {allGoods} from "../../mock";
 
-export const Basket = ({userId, baskets, setBasketInfo}) => {
+export const Basket = ({userId, setBasketInfo}) => {
     const getBasket = JSON.parse(localStorage.getItem('baskets'));
 
     const [getBasketByUser, setGetBasketByUser] = useState([]);

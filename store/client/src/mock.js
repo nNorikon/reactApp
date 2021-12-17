@@ -2,8 +2,7 @@ import defaultIceCream from "./assets/images/defaultIcecream.svg";
 import firstTypeOfIcecream from "./assets/images/firstTypeOfIcecream.svg";
 import secondTypeOfIcecream from "./assets/images/secondTypeOfIcecream.svg";
 import thirdTypeOfIcecream from "./assets/images/thirdTypeOfIcecream.svg";
-import TextField from "@mui/material/TextField";
-import React from "react";
+// import React from "react";
 
 const desc = 'Chocolate ice cream has a bright, rich and refreshing taste of the ingredient it contains. Thanks to liquid nitrogen shock freezing (-193°C), which freezes all the ingredients instantly and gives the ice cream an amazingly delicate texture, all the flavors, vitamins and nutrients are preserved by 99%.\n' +
     '\n' +

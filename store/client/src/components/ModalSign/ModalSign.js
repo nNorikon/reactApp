@@ -3,15 +3,15 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import {NavLink} from "react-router-dom";
+// import {NavLink} from "react-router-dom";
 
 
 import './ModalSign.scss';
 import closeImage from '../../assets/images/close.svg';
-import {logDOM} from "@testing-library/react";
+// import {logDOM} from "@testing-library/react";
 
 export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, label, url, textUrl, labelModal, setIsAuth, setUserId, setBasketInfo}) => {
 
@@ -106,7 +106,7 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
                          noValidate
                          autoComplete="off">
                         <button className='closeButton' onClick={handleClose}>
-                            <img src={closeImage}/>
+                            <img src={closeImage} alt='Close'/>
                         </button>
                         <div className='mainBlock'>
                             <div className='articleBlock'>{labelModal}</div>

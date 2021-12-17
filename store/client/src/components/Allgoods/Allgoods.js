@@ -6,20 +6,16 @@ import './Allgoods.scss'
 import heart from "../../assets/images/heart.svg";
 
 
-export const Allgoods = () => {
-
-    const goods = JSON.parse(localStorage.getItem('objectGoods'));
+export const Allgoods = ({allProducts}) => {
 
     return (
         <>
-
-
             <div className='slogan'>
                 I<img src={heart} alt='I love icecream'/>ICE CREAM
             </div>
-            {goods && (
+            {allProducts && (
                 <div className='allGoods'>
-                    {goods.map((good) => (
+                    {allProducts?.map((good) => (
                         <Cart
                             key={good.id}
                             id={good.id}

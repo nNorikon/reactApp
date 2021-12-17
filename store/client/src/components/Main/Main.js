@@ -13,7 +13,7 @@ export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, 
         <main className='container main'>
 
             <Routes>
-                <Route path='/' element={<Allgoods />} />
+                <Route path='/' element={<Allgoods allProducts={allProducts} />} />
                 <Route path='/basket/' element={
                     isAuth ? (
                         <Basket
@@ -25,7 +25,9 @@ export const Main = ({allProducts, setAllProducts, baskets, setBaskets, userId, 
                             isAuth={isAuth}
                         />
                     ) : (
-                            <Allgoods />
+                            <Allgoods
+                                allProducts={allProducts}
+                            />
                         )
                 }/>
                 <Route path='/product/:productId' element={

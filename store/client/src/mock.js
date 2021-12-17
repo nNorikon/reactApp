@@ -4,6 +4,8 @@ import secondTypeOfIcecream from "./assets/images/secondTypeOfIcecream.svg";
 import thirdTypeOfIcecream from "./assets/images/thirdTypeOfIcecream.svg";
 // import React from "react";
 
+export const usedApiUrl = `http://localhost:5000/api`;
+
 const desc = 'Chocolate ice cream has a bright, rich and refreshing taste of the ingredient it contains. Thanks to liquid nitrogen shock freezing (-193°C), which freezes all the ingredients instantly and gives the ice cream an amazingly delicate texture, all the flavors, vitamins and nutrients are preserved by 99%.\n' +
     '\n' +
     'Blast freezing with liquid nitrogen (-193°C), which freezes all the ingredients instantly and gives the ice cream an amazingly delicate texture, preserving all the flavors, vitamins and nutrients by 99%.'
@@ -87,8 +89,8 @@ export const signUpInputs =[
     },
     {
         id: 'password',
-        placeholder: 'You name',
-        labelName: 'name'
+        placeholder: 'Enter your password',
+        labelName: 'Password'
     },
 ];
 

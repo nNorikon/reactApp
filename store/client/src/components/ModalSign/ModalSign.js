@@ -3,15 +3,13 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-// import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-// import {NavLink} from "react-router-dom";
 
 
 import './ModalSign.scss';
 import closeImage from '../../assets/images/close.svg';
-// import {logDOM} from "@testing-library/react";
+import axios from "axios";
+import {usedApiUrl} from "../../mock";
 
 export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, label, url, textUrl, labelModal, setIsAuth, setUserId, setBasketInfo}) => {
 
@@ -20,6 +18,7 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
     const [errorUserExists, setErrorUserExists] = useState(false);
     const handleClose = (state) => setViewModal(state);
 
+    console.log(users)
     const authUser = (formObject) => {
         const isUser = users.find((user) => user.email === formObject.email);
         const comparePasswords = isUser.password === formObject.password;
@@ -27,17 +26,13 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
             if (comparePasswords) {
                 setIsAuth(true);
                 setViewModal(false);
-                markDataBaseAuthIs(isUser.id);
                 setUserId(isUser.id);
+                localStorage.setItem('isAuth', 'true');
                 localStorage.setItem('userId', `${isUser.id}`)
             }
             return comparePasswords;
         }
         setErrorUserUndefined(true);
-    }
-
-    const markDataBaseAuthIs = (id) => {
-        localStorage.setItem('isAuth', 'true');
     }
 
     const handleChange = (e) => {
@@ -59,17 +54,15 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
         const date = Date.now();
         const result = {...form, 'id': date}
 
-        const newOrOldUser = users.find((user) => user.email === form.email);
-
-        if (newOrOldUser) {
+        if (!users) {
             setErrorUserExists(true);
         } else {
-            const arrUsers = [...users, result];
             setErrorUserExists(false);
-            localStorage.setItem('users', JSON.stringify(arrUsers));
-            setUsers(arrUsers);
-            setViewModal('signin');
-            setBasketInfo(0);
+            const apiUrlUsers = `${usedApiUrl}/register`;
+            axios.post(apiUrlUsers, result).then((res) => {
+                setViewModal('signin');
+                setBasketInfo(0);
+            });
         }
     }
 
@@ -85,7 +78,7 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
         }
     }
 
-
+    let key = 0;
     return (
         <div>
             <Modal
@@ -112,10 +105,9 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
                             <div className='articleBlock'>{labelModal}</div>
                             <div className='formBlock'>
                                 {
-
                                     inputs.map((elem) => {
                                         return (
-                                            <div className='inputBlock'>
+                                            <div key={key++} className='inputBlock'>
                                                 <label className='signLabelText'>{elem.labelName}</label>
                                                 <TextField id={elem.id} onChange={handleChange}
                                                            placeholder={elem.placeholder}

@@ -19,9 +19,11 @@ export const CardDetail = ({allProducts, baskets, userId, isAuth, setViewModal, 
     const [getBasketByUser, setGetBasketByUser] = useState([]);
 
     useEffect(() => {
-        if (getBasket && !Object.keys(getBasketByUser).length) {
-            const userBasket = getBasket.find(userBasket => userBasket.userid === userId);
-            setGetBasketByUser(userBasket)
+        if(isAuth){
+            if (getBasket && !Object.keys(getBasketByUser).length) {
+                const userBasket = getBasket.find(userBasket => userBasket.userid === userId);
+                setGetBasketByUser(userBasket)
+            }
         }
     }, [getBasket, isAddedToBasket]);
 

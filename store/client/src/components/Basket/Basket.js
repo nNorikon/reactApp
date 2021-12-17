@@ -32,7 +32,6 @@ export const Basket = ({userId, setBasketInfo}) => {
         getTotalCost == 0 ?  setEmptyBasket(true) : setEmptyBasket(false);
     }, [getBasketByUser]);
 
-
     return (
         <>
             <Bread nameOfPage={'Basket'}/>

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import TextField from '@mui/material/TextField';
-
+import bcrypt from 'bcryptjs';
 
 import './ModalSign.scss';
 import closeImage from '../../assets/images/close.svg';
@@ -18,17 +18,19 @@ export const ModalSign = ({users, setUsers, viewModal, setViewModal, inputs, lab
     const [errorUserExists, setErrorUserExists] = useState(false);
     const handleClose = (state) => setViewModal(state);
 
-    console.log(users)
     const authUser = (formObject) => {
         const isUser = users.find((user) => user.email === formObject.email);
-        const comparePasswords = isUser.password === formObject.password;
         if (isUser) {
+            const apiUrlUsers = `${usedApiUrl}/auth/login`;
+            axios.post(apiUrlUsers, formObject).then((res) => {
+                console.log(res)
+            });
             if (comparePasswords) {
                 setIsAuth(true);
                 setViewModal(false);
-                setUserId(isUser.id);
+                setUserId(isUser._id);
                 localStorage.setItem('isAuth', 'true');
-                localStorage.setItem('userId', `${isUser.id}`)
+                localStorage.setItem('userId', `${isUser._id}`)
             }
             return comparePasswords;
         }

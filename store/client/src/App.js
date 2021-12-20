@@ -5,21 +5,20 @@ import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import {Main} from "./components/Main";
 
-import {allGoods, usedApiUrl} from "./mock";
+import {usedApiUrl} from "./mock";
 import './App.css';
 
 function App() {
 
-    const getBaskets = JSON.parse(localStorage.getItem('baskets'));
-
     const [allProducts, setAllProducts] = useState([]);
-    const [baskets, setBaskets] = useState(JSON.parse(localStorage.getItem('baskets')) || []);
+    const [baskets, setBaskets] = useState([]);
     const [users, setUsers] = useState({});
     const [isAuth, setIsAuth] = useState(JSON.parse(localStorage.getItem('isAuth')) || false);
-    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('userId')) || 0);
+    const [userId, setUserId] = useState(localStorage.getItem('userId') || 0);
     const [basketInfo, setBasketInfo] = useState(0);
     const [open, setOpen] = useState(false);
     const [viewModal, setViewModal] = useState();
+    const [token ,setToken] = useState('Bearer ' + localStorage.getItem('token') || 0);
 
 
     useEffect(() => {
@@ -33,28 +32,33 @@ function App() {
     useEffect(()=> {
         const apiUrlUsers = `${usedApiUrl}/users`;
         axios.get(apiUrlUsers).then((res) => {
-            setUsers(res.data.users[0])
+            setUsers(res.data.users)
         });
     }, [viewModal])
 
     useEffect(() => {
-        // if (isAuth) {
-        //     const apiUrl = `${usedApiUrl}/basket`;
-        //     axios.get(apiUrl).then((res) => {
-        //         setBaskets(res.data.basket)
-        //     });
-        // }
+        if (isAuth) {
+            const apiUrl = `${usedApiUrl}/basket`;
+            axios.get(apiUrl).then((res) => {
+                setBaskets(res.data.basket)
+            });
+        }
     }, [isAuth])
 
 
 
-    const isUserBasket = !!getBaskets;
+    const isUserBasket = !!baskets;
 
     useEffect(() => {
         if(isUserBasket) {
             if (isAuth) {
-                const getBasketForSetter = baskets.find(user => user.userid === userId).basket.length;
-                setBasketInfo(getBasketForSetter);
+                const getBasketForSetter = baskets.find(user => user.userid === userId);
+                if (getBasketForSetter) {
+                    setBasketInfo(getBasketForSetter.basket.length)
+                } else {
+                    setBasketInfo(0);
+                }
+
             } else {
                 setBasketInfo(0)
             }
@@ -74,6 +78,7 @@ function App() {
                 viewModal={viewModal}
                 setViewModal={setViewModal}
                 setBasketInfo={setBasketInfo}
+                token={[]}
             />
             <Main
                 isAuth={isAuth}
